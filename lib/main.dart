@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rive_animation/entry_point.dart';
-import 'package:rive_animation/screens/home/home_screen.dart';
-import 'package:rive_animation/screens/onboding/onboding_screen.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'The Flutter Way',
+      title: 'Bottom Navigation Bar with Rive Animation',
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0xFFEEF1F8),
         primarySwatch: Colors.blue,
@@ -29,7 +28,7 @@ class MyApp extends StatelessWidget {
           errorBorder: defaultInputBorder,
         ),
       ),
-      home:  EntryPoint(),
+      home: const EntryPoint(),
     );
   }
 }
