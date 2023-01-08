@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/utils/rive_utils.dart';
-
-import 'components/animated_bar.dart';
-import 'models/rive_asset.dart';
-
-// Thst's it for Episode 4 :)
-// Let's see what we are gonna do in Episode 5
-// Thanks for watching
+import '/resources/app_colors.dart';
+import '/utils/rive_utils.dart';
+import '/components/animated_bar.dart';
+import '/models/rive_asset.dart';
 
 class EntryPoint extends StatefulWidget {
   const EntryPoint({super.key});
@@ -18,7 +13,7 @@ class EntryPoint extends StatefulWidget {
 }
 
 class _EntryPointState extends State<EntryPoint> {
-  RiveAsset selectedBottomNav = bottomNavs.first;
+  RiveAsset selectedBottomNav = bottomNavItems.first;
 
   @override
   Widget build(BuildContext context) {
@@ -39,36 +34,36 @@ class _EntryPointState extends State<EntryPoint> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ...List.generate(
-                bottomNavs.length,
+                bottomNavItems.length,
                 (index) => GestureDetector(
                   onTap: () {
-                    bottomNavs[index].input!.change(true);
-                    if (bottomNavs[index] != selectedBottomNav) {
+                    bottomNavItems[index].input!.change(true);
+                    if (bottomNavItems[index] != selectedBottomNav) {
                       setState(() {
-                        selectedBottomNav = bottomNavs[index];
+                        selectedBottomNav = bottomNavItems[index];
                       });
                     }
                     Future.delayed(const Duration(seconds: 1), () {
-                      bottomNavs[index].input!.change(false);
+                      bottomNavItems[index].input!.change(false);
                     });
                   },
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      AnimatedBar(isActive: bottomNavs[index] == selectedBottomNav),
+                      AnimatedBar(isActive: bottomNavItems[index] == selectedBottomNav),
                       SizedBox(
                         height: 36,
                         width: 36,
                         child: Opacity(
-                          opacity: bottomNavs[index] == selectedBottomNav ? 1 : 0.5,
+                          opacity: bottomNavItems[index] == selectedBottomNav ? 1 : 0.5,
                           child: RiveAnimation.asset(
-                            bottomNavs.first.src,
-                            artboard: bottomNavs[index].artboard,
-                            onInit: (artboard) {
-                              StateMachineController controller = RiveUtils.getRiveController(artboard,
-                                  stateMachineName: bottomNavs[index].stateMachineName);
+                            bottomNavItems.first.src,
+                            artboard: bottomNavItems[index].artBoard,
+                            onInit: (artBoard) {
+                              StateMachineController controller = RiveUtils.getRiveController(artBoard,
+                                  stateMachineName: bottomNavItems[index].stateMachineName);
 
-                              bottomNavs[index].input = controller.findSMI("active") as SMIBool;
+                              bottomNavItems[index].input = controller.findSMI("active") as SMIBool;
                             },
                           ),
                         ),
