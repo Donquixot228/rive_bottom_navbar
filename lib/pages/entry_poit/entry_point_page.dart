@@ -60,9 +60,10 @@ class _EntryPointState extends State<EntryPoint> {
                             bottomNavItems.first.src,
                             artboard: bottomNavItems[index].artBoard,
                             onInit: (artBoard) {
-                              StateMachineController controller = RiveUtils.getRiveController(artBoard,
-                                  stateMachineName: bottomNavItems[index].stateMachineName);
-
+                              StateMachineController controller = RiveUtils.getRiveController(
+                                artBoard,
+                                stateMachineName: bottomNavItems[index].stateMachineName,
+                              );
                               bottomNavItems[index].input = controller.findSMI("active") as SMIBool;
                             },
                           ),

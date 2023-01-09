@@ -8,8 +8,8 @@ class RiveAsset {
 
   late SMIBool? input;
 
-  RiveAsset(
-    this.src, {
+  RiveAsset({
+    required this.src,
     required this.artBoard,
     required this.stateMachineName,
     required this.title,
@@ -23,31 +23,31 @@ class RiveAsset {
 
 List<RiveAsset> bottomNavItems = [
   RiveAsset(
-    "assets/RiveAssets/icons.riv",
+    src: "assets/nav_bar_icons/icons.riv",
     artBoard: "CHAT",
     stateMachineName: "CHAT_Interactivity",
     title: "Chat",
   ),
   RiveAsset(
-    "assets/RiveAssets/icons.riv",
+    src: "assets/nav_bar_icons/icons.riv",
     artBoard: "SEARCH",
     stateMachineName: "SEARCH_Interactivity",
     title: "Search",
   ),
   RiveAsset(
-    "assets/RiveAssets/icons.riv",
+    src: "assets/nav_bar_icons/icons.riv",
     artBoard: "TIMER",
     stateMachineName: "TIMER_Interactivity",
     title: "Chat",
   ),
   RiveAsset(
-    "assets/RiveAssets/icons.riv",
+    src: "assets/nav_bar_icons/icons.riv",
     artBoard: "BELL",
     stateMachineName: "BELL_Interactivity",
     title: "Notifications",
   ),
   RiveAsset(
-    "assets/RiveAssets/icons.riv",
+    src: "assets/nav_bar_icons/icons.riv",
     artBoard: "USER",
     stateMachineName: "USER_Interactivity",
     title: "Profile",
