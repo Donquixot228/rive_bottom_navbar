@@ -44,7 +44,7 @@ class _EntryPointState extends State<EntryPoint> {
                       });
                     }
                     // Time of animation running
-                    Future.delayed(const Duration(seconds: 1), () {
+                    Future.delayed(const Duration(seconds: 10), () {
                       bottomNavItems[index].input!.change(false);
                     });
                   },
