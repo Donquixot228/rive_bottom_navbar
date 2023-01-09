@@ -43,6 +43,7 @@ class _EntryPointState extends State<EntryPoint> {
                         selectedBottomNav = bottomNavItems[index];
                       });
                     }
+                    // Time of animation running
                     Future.delayed(const Duration(seconds: 1), () {
                       bottomNavItems[index].input!.change(false);
                     });
